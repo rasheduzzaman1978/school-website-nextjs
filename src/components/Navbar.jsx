@@ -47,22 +47,23 @@ export default function CustomNavbar() {
       <header className="sticky top-0 z-50 bg-white dark:bg-[#04122d] shadow-md dark:shadow-lg">
         <Navbar
         maxWidth="full"
-        className="bg-white dark:bg-[#04122d] text-slate-900 dark:text-white px-4 xl:px-10 h-[74px] transition-colors duration-300"
+        className="bg-white dark:bg-[#04122d] text-slate-900 dark:text-white  px-3 md:px-6 xl:px-10
+    h-16 md:h-[74px] transition-colors duration-300"
         >
           
           {/* Logo */}
-          <NavbarContent justify="start" className="w-auto">
+          <NavbarContent justify="start" className="flex-1">
             <NavbarBrand>
-              <Link href="/" className="flex items-center gap-3">
+              <Link href="/" className="flex items-center gap-2 md:gap-3">
                 <Image
                   src="/school-logo.jpg"
                   alt="School Logo"
-                  width={48}
-                  height={48}
+                  width={44}
+                  height={44}
                   className="rounded-full border-2 border-yellow-400"
                 />
 
-                <div className="hidden md:block leading-none">
+                <div className="hidden lg:block leading-none">
                   <h1 className="text-slate-900 dark:text-white text-xl font-extrabold">
                     গয়হাট্টা মডেল
                   </h1>
@@ -98,7 +99,7 @@ export default function CustomNavbar() {
           </NavbarContent>
 
           {/* Right Side */}
-          <NavbarContent justify="end" className="flex items-center gap-3">
+          <NavbarContent justify="end" className="flex-1 flex items-center justify-end gap-2 md:gap-3">
             <ThemeToggle />
             {/* Mobile Toggle */}
             <button
