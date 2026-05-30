@@ -23,7 +23,7 @@ export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "বিদ্যালয়ের তথ্য", path: "/" },
+    { name: "হোম", path: "/" },
     { name: "শিক্ষক", path: "/teachers" },
     { name: "শিক্ষার্থী", path: "/students" },
     { name: "ফলাফল", path: "/results" },
@@ -58,8 +58,8 @@ export default function CustomNavbar() {
                 <Image
                   src="/school-logo.jpg"
                   alt="School Logo"
-                  width={44}
-                  height={44}
+                  width={40}
+                  height={40}
                   className="rounded-full border-2 border-yellow-400"
                 />
 

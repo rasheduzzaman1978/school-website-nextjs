@@ -3,6 +3,7 @@ import "./globals.css";
 import CustomNavbar from "@/components/Navbar";
 import Providers from "@/components/ThemeProvider";
 import { Geist, Geist_Mono } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
           <main className="flex-1 bg-slate-100 dark:bg-[#020817] transition-colors duration-300">
             {children}
           </main>
+          <Footer />
         </Providers>
       </body>
     </html>
