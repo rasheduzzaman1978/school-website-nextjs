@@ -1,3 +1,4 @@
+import BreakingNews from "@/components/BreakingNews";
 import "./globals.css";
 import CustomNavbar from "@/components/Navbar";
 import Providers from "@/components/ThemeProvider";
@@ -33,7 +34,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-screen flex flex-col bg-slate-100 text-slate-900 dark:bg-[#020817] dark:text-white transition-colors duration-300">
         <Providers>
           <CustomNavbar />
-
+          <BreakingNews />
           <main className="flex-1 bg-slate-100 dark:bg-[#020817] transition-colors duration-300">
             {children}
           </main>
