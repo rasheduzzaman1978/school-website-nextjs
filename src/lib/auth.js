@@ -1,3 +1,7 @@
+import dns from "dns";
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 import { betterAuth } from "better-auth";
 import { MongoClient } from "mongodb";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
@@ -5,7 +9,7 @@ import { jwt } from "better-auth/plugins";
 
 const client = new MongoClient(process.env.MONGODB_URI);
 await client.connect();
-const db = client.db("mediqueue");
+const db = client.db("school-website");
 
 export const auth = betterAuth({
   database: mongodbAdapter(db, {
@@ -16,7 +20,7 @@ export const auth = betterAuth({
   trustedOrigins: [
     process.env.BETTER_AUTH_URL,
      "http://localhost:3000",
-     "https://mediqueue-client-snowy.vercel.app",
+     "https://school-website-****.vercel.app",
     
   ],
 

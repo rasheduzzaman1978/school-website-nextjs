@@ -38,6 +38,9 @@ export default function CustomNavbar() {
   const session = authClient.useSession();
   const user = session.data?.user;
 
+  console.log(user);
+  console.log(user?.image);
+
   const handleLogout = async () => {
     await authClient.signOut();
   };
@@ -120,13 +123,15 @@ export default function CustomNavbar() {
                 </Link>
               ) : (
                 <div className="flex items-center gap-3">
-                  <Avatar
+                <Avatar className="cursor-pointer ring-2 ring-green-500">
+                  <Avatar.Image
                     src={user?.image}
-                    name={user?.name}
-                    size="sm"
-                    className="ring-2 ring-green-500"
+                    alt={user?.name || "User"}
                   />
-
+                  <Avatar.Fallback>
+                    {user?.name?.charAt(0) || "G"}
+                  </Avatar.Fallback>
+                </Avatar>
                   <span className="hidden lg:block text-sm text-slate-900 dark:text-white font-medium">
                     {user?.name}
                   </span>
@@ -135,6 +140,7 @@ export default function CustomNavbar() {
                     color="danger"
                     size="sm"
                     onClick={handleLogout}
+                    className="!bg-red-600 !text-white hover:!bg-red-700"
                   >
                     Logout
                   </Button>
