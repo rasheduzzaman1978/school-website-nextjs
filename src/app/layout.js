@@ -2,7 +2,7 @@ import BreakingNews from "@/components/BreakingNews";
 import "./globals.css";
 import CustomNavbar from "@/components/Navbar";
 import Providers from "@/components/ThemeProvider";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Noto_Sans_Bengali } from "next/font/google";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 
@@ -14,6 +14,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const notoSansBengali = Noto_Sans_Bengali({
+  variable: "--font-noto-bengali",
+  subsets: ["bengali"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -29,18 +35,21 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="bn"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSansBengali.variable} h-full antialiased`}
     >
-      <body className="min-h-screen overflow-x-hidden flex flex-col bg-slate-100 text-slate-900 dark:bg-[#020817] dark:text-white transition-colors duration-300">
+      <body className="min-h-screen overflow-x-hidden flex flex-col bg-slate-100 text-slate-900 dark:bg-[#020817] dark:text-white transition-colors duration-300 font-sans">
         <Providers>
           <CustomNavbar />
           <BreakingNews />
+
           <main className="flex-1 bg-slate-100 dark:bg-[#020817] transition-colors duration-300">
             {children}
           </main>
+
           <Footer />
+
           <ToastContainer
             position="top-right"
             autoClose={1200}

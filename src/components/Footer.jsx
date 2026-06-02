@@ -45,22 +45,16 @@ export default function Footer() {
           
           {/* School Info */}
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center gap-3">
               <Image
-                src="/school-logo.jpg"
+                src="/logo.jpg"
                 alt="School Logo"
-                width={40}
-                height={40}
+                width={60}
+                height={60}
                 className="rounded-full border-2 border-yellow-400"
               />
 
-              <div>
-                <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white leading-tight">
-                  গয়হাট্টা মডেল সরকারি
-                  <br />
-                  <span className="text-blue-600 dark:text-sky-400">প্রাথমিক বিদ্যালয়</span>
-                </h2>
-              </div>
+              
             </div>
 
             <p className="text-sm md:text-base mt-4 text-slate-600 dark:text-slate-300 leading-relaxed text-justify">

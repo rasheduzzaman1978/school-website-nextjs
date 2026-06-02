@@ -1,9 +1,17 @@
 "use client";
 
-import { Button, Table } from "@heroui/react";
+
+import { AlertDialog, Button, Table } from "@heroui/react";
 import Link from "next/link";
 
-const ResultsTable = ({ results }) => {
+const ResultsTable = ({ results, deleteResultAction }) => {
+
+  const handleDelete = async (resultId) => {
+    await deleteResultAction(resultId);
+    
+    };
+    
+
   return (
     <Table variant="secondary">
       <Table.ScrollContainer>
@@ -38,16 +46,40 @@ const ResultsTable = ({ results }) => {
                       <Button>বিস্তারিত</Button>
                     </Link>
 
-                    <Link href={`/results/edit/${result._id}`}>
+                    <Link href={`/results/${result._id}/edit`}>
                       <Button variant="outline">
                         এডিট
                       </Button>
                     </Link>
-
-                    <Button variant="danger">
-                      মুছে ফেলুন
-                    </Button>
-                  </div>
+                      <AlertDialog>
+                      <Button variant="danger">মুছে ফেলুন</Button>
+                      <AlertDialog.Backdrop>
+                        <AlertDialog.Container>
+                          <AlertDialog.Dialog className="sm:max-w-[400px]">
+                            <AlertDialog.CloseTrigger />
+                            <AlertDialog.Header>
+                              <AlertDialog.Icon status="danger" />
+                              <AlertDialog.Heading>ফলাফল স্থায়ীভাবে মুছে ফেলতে চান?</AlertDialog.Heading>
+                            </AlertDialog.Header>
+                            <AlertDialog.Body>
+                              <p>
+                                এটি স্থায়ীভাবে মুছে ফেলবে <strong>{result.name}</strong> এবং এর সব তথ্য।
+                                এই কাজটি পরে আর ফিরিয়ে আনা যাবে না。
+                              </p>
+                            </AlertDialog.Body>
+                            <AlertDialog.Footer>
+                              <Button slot="close" variant="tertiary">
+                                বাতিল করুন
+                              </Button>
+                              <Button slot="close" onClick={() => handleDelete(result._id)} variant="danger">
+                                মুছে ফেলুন
+                              </Button>
+                            </AlertDialog.Footer>
+                          </AlertDialog.Dialog>
+                        </AlertDialog.Container>
+                      </AlertDialog.Backdrop>
+                    </AlertDialog>
+                    </div>
                 </Table.Cell>
               </Table.Row>
             ))}

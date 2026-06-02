@@ -50,7 +50,7 @@ export default function CustomNavbar() {
       <header className="sticky top-0 z-50 bg-white dark:bg-[#04122d] shadow-md dark:shadow-lg">
         <Navbar
         maxWidth="full"
-        className="bg-white dark:bg-[#04122d] text-slate-900 dark:text-white  px-3 md:px-6 xl:px-10
+        className="bg-white dark:bg-[#04122d] text-slate-900 dark:text-white  px-3 md:px-6 lg:px-10
     h-16 md:h-[74px] transition-colors duration-300"
         >
           
@@ -59,7 +59,7 @@ export default function CustomNavbar() {
             <NavbarBrand>
               <Link href="/" className="flex items-center gap-2 md:gap-3">
                 <Image
-                  src="/school-logo.jpg"
+                  src="/logo.jpg"
                   alt="School Logo"
                   width={40}
                   height={40}
@@ -80,7 +80,7 @@ export default function CustomNavbar() {
           </NavbarContent>
 
           {/* Desktop Menu */}
-          <NavbarContent justify="center" className="hidden xl:flex flex-1 gap-0.5 ml-6">
+          <NavbarContent justify="center" className="hidden lg:flex flex-1 gap-1 items-center">
             {navLinks.map((link) => {
               const isActive = pathname === link.path;
 
@@ -88,7 +88,7 @@ export default function CustomNavbar() {
                 <NavbarItem key={link.path}>
                   <Link
                     href={link.path}
-                    className={`px-3 py-2 text-[15px] font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${
+                    className={`px-2 xl:px-3 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-300 ${
                     isActive
                         ? "bg-blue-600 text-white shadow-md"
                         : "text-slate-700 dark:text-gray-100 hover:text-blue-600 dark:hover:text-sky-400"
@@ -107,13 +107,13 @@ export default function CustomNavbar() {
             {/* Mobile Toggle */}
             <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="xl:hidden text-slate-800 dark:text-white text-xl p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition"
+                className="lg:hidden text-slate-800 dark:text-white text-xl p-2 rounded-lg hover:bg-slate-200 dark:hover:bg-white/10 transition"
                 >
                 {isMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
 
              {/* Desktop Auth */}
-            <div className="hidden xl:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-3">
               {!user ? (
                 <Link href="/login">
                 <Button className="bg-[#39d353] hover:bg-[#32c84b] text-white font-bold text-lg px-3 h-10 rounded-md shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
@@ -156,7 +156,7 @@ export default function CustomNavbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="xl:hidden bg-white dark:bg-[#04122d] text-slate-900 dark:text-white shadow-lg">
+        <div className="lg:hidden bg-white dark:bg-[#04122d] text-slate-900 dark:text-white shadow-lg">
           <div className="px-4 py-4 space-y-1">
 
             {navLinks.map((link) => {

@@ -1,5 +1,5 @@
 export const getResults = async () => {
-    const res = await fetch("http://localhost:5000/results",
+    const res = await fetch("http://localhost:8000/results",
         {
             cache: "no-store"
         }
@@ -9,5 +9,11 @@ export const getResults = async () => {
 }
 
 export const getResultById = async (resultId) => {
-
+    const res = await fetch(`http://localhost:8000/results/${resultId}`,
+        {
+            cache: "no-store"
+        }
+    );
+    const data = await res.json();
+    return data;
 }
